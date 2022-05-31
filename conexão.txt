@@ -1,0 +1,17 @@
+<?php 
+require 'conexão2.php';
+
+if (isset($_SESSION['idUSER']) && !empyt($_SESSION['idUser'])){
+
+    require_once 'Usuario.class.php';
+    $u = new Usuario();
+
+    $listLogged = $u->logged($_SESSION['idUSER']);
+
+    $nomeUser = $listLogged['nome'];
+
+}else{
+    header("Location: login.php");
+}
+
+?>
